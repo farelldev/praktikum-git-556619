@@ -63,6 +63,27 @@
         cursor: pointer;
         text-decoration: none;
         }
+
+        @media (max-width: 768px) {
+        .split {
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        .left {
+            order: 1;
+        }
+
+        .right {
+            order: 2;
+            width: 100%;
+        }
+
+        .cta-btn {
+            font-size: 0.95rem;
+            padding: 0.9rem 2rem;
+        }
+        }
     </style>
 </head>
 <body>
