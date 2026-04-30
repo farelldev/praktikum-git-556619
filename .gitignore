@@ -1,10 +1,17 @@
+# Dependencies
+vendor/
+
+# Build output
+dist/
+build/
+*.min.js
+
 # Environment & secrets
 .env
 .env.local
 *.key
 
 # OS files
-.DS_Store
 Thumbs.db
 
 # IDE
