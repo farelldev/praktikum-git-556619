@@ -14,26 +14,50 @@
         }
 
         :root {
-        --bg-foot: #F8F9FA;
+        --bg: white;
+        --bg-alt: #F8F9FA;
+        --headline: black;
         --subheadline: #555555;
-        --accent: #74cc00;
+        --accent: #74CC00;
         --cta-bg: #DFFF00;
         --border-color: rgba(0, 0, 0, 0.08);
+        --bottom: #252525;
+        }
+
+        .dark-mode {
+        --bg: #121212;
+        --bg-alt: #0A0A0A;
+        --headline: white;
+        --subheadline: #B0B0B0;
+        --border-color: rgba(255, 255, 255, 0.05);
+        --bottom: #dfdfdf;
         }
 
         html{
         font-family: 'Inter', sans-serif;
         }
 
+        body {
+        background-color: var(--bg);
+        }
+
+        body, nav, footer, .theme-btn, .img-tag {
+        transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
+        }
+
+        h1 {
+        color: var(--headline);
+        }
+
         h1 span {
-            color: var(--accent)
+        color: var(--accent)
         }
         
         .logo {
         font-size: 1.15rem;
         font-weight: 800;
         letter-spacing: -0.03em;
-        color: black;
+        color: var(--headline);
         text-decoration: none;
         }
 
@@ -50,7 +74,7 @@
         top: 0;
         z-index: 5;
         border-bottom: 1px solid var(--border-color);
-        background-color: white;
+        background-color: var(--bg-alt);
         }
 
         .nav-links {
@@ -60,7 +84,7 @@
         }
 
         .nav-links a {
-        color: #B0B0B0;
+        color: var(--subheadline);
         text-decoration: none;
         font-size: 0.875rem;
         font-weight: 500;
@@ -68,7 +92,7 @@
         }
 
         .nav-links a:hover {
-        color: black;
+        color: var(--headline);
         }
     
         .hero {
@@ -133,9 +157,8 @@
         text-decoration: none;
         }
 
-        /* ── FOOTER STYLE ── */
         footer {
-        background-color: var(--bg-foot);
+        background-color: var(--bg-alt);
         padding: 5rem 5vw 2rem;
         border-top: 1px solid var(--border-color);
         position: relative;
@@ -173,6 +196,7 @@
         font-size: 1rem;
         font-weight: 700;
         margin-bottom: 1.5rem;
+        color: var(--headline);
         }
 
         .footer-column ul {
@@ -185,18 +209,18 @@
         }
 
         .footer-column ul li a {
-        color: #B0B0B0;
+        color: var(--subheadline);
         text-decoration: none;
         font-size: 0.85rem;
         transition: color 0.2s;
         }
 
         .footer-column ul li a:hover {
-        color: black;
+        color: var(--accent);
         }
 
         .footer-column p {
-        color: #B0B0B0;
+        color: var(--subheadline);
         font-size: 0.85rem;
         line-height: 1.6;
         margin-bottom: 0.5rem;
@@ -210,14 +234,14 @@
         max-width: 1200px;
         margin: 4rem auto 0;
         padding-top: 2rem;
-        border-top: 1px solid black;
+        border-top: 1px solid var(--border-color);
         display: flex;
         justify-content: space-between;
         align-items: center;
         }
 
         .footer-bottom p {
-        color: #555;
+        color: var(--headline);
         font-size: 0.75rem;
         }
 
@@ -227,13 +251,50 @@
         }
 
         .footer-bottom-links a {
-        color: #9d9d9d;
+        color: var(--subheadline);
         text-decoration: none;
         font-size: 0.75rem;
         }
 
         .footer-bottom-links a:hover {
-        color: #B0B0B0;
+        color: var(--bottom);
+        }
+
+        .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        }
+
+        .theme-btn {
+        background: var(--bg-alt);
+        border: 1px solid var(--border-color);
+        padding: 0.5rem;
+        border-radius: 12px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        width: 42px;
+        height: 42px;
+        position: relative;
+        overflow: hidden;
+        }
+
+        .theme-btn:hover {
+        background: var(--accent);
+        border-color: var(--accent);
+        }
+
+        .theme-btn .icon-moon { display: none; }
+        .theme-btn .icon-sun { display: block; }
+
+        .dark-mode .theme-btn .icon-sun { display: none; }
+        .dark-mode .theme-btn .icon-moon { display: block; }
+
+        body {
+        transition: background-color 0.4s ease, color 0.4s ease;
         }
 
         @media (max-width: 900px) {
@@ -284,12 +345,18 @@
 <body>
     <nav>
         <a class="logo" href="#">Lapang<span>in</span></a>
-        <ul class="nav-links">
-        <li><a href="#">Fasilitas</a></li>
-        <li><a href="#">Jadwal</a></li>
-        <li><a href="#">Harga</a></li>
-        <li><a href="#">Kontak</a></li>
-        </ul>
+        <div class="nav-right">
+            <ul class="nav-links">
+                <li><a href="#">Fasilitas</a></li>
+                <li><a href="#">Jadwal</a></li>
+                <li><a href="#">Harga</a></li>
+                <li><a href="#">Kontak</a></li>
+            </ul>
+            <button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme">
+                <span class="icon-sun">☀️</span>
+                <span class="icon-moon">🌙</span>
+            </button>
+        </div>
     </nav>
 
     <section class="hero">
@@ -351,12 +418,32 @@
     </div>
 
     <div class="footer-bottom">
-      <p>&copy; 2026 LapangIn. Proyek UAS Pemrograman Web.</p>
-      <div class="footer-bottom-links">
-        <a href="#">Status Server</a>
-        <a href="#">Sitemap</a>
-      </div>
+        <p>&copy; 2026 LapangIn. Proyek UAS Pemrograman Web.</p>
+        <div class="footer-bottom-links">
+            <a href="#">Status Server</a>
+            <a href="#">Sitemap</a>
+        </div>
     </div>
-  </footer>
+    </footer>
+
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme === 'dark') {
+        body.classList.add('dark-mode');
+        }
+
+        themeToggle.addEventListener('click', () => {
+        body.classList.toggle('dark-mode');
+
+        let theme = 'light';
+        if (body.classList.contains('dark-mode')) {
+            theme = 'dark';
+        }
+        localStorage.setItem('theme', theme);
+        });
+    </script>
 </body>
 </html>
