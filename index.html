@@ -6,15 +6,27 @@
     <title>Lapangin - Hero Section</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800;900&display=swap" rel="stylesheet" />
 
-    <style>
+    <style>        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        :root {
+        --bg-foot: #F8F9FA;
+        --subheadline: #555555;
+        --accent: #74cc00;
+        --cta-bg: #DFFF00;
+        --border-color: rgba(0, 0, 0, 0.08);
+        }
+
         html{
         font-family: 'Inter', sans-serif;
+        }
+
+        h1 span {
+            color: var(--accent)
         }
         
         .logo {
@@ -26,7 +38,7 @@
         }
 
         .logo span {
-        color: #696969;
+        color: var(--accent);
         }
 
         nav {
@@ -37,20 +49,8 @@
         position: sticky;
         top: 0;
         z-index: 5;
-        border-bottom: 1px solid black;
+        border-bottom: 1px solid var(--border-color);
         background-color: white;
-        }
-
-        .nav-logo {
-        font-size: 1.15rem;
-        font-weight: 800;
-        letter-spacing: -0.03em;
-        color: black;
-        text-decoration: none;
-        }
-
-        .nav-logo span {
-        color: #696969;
         }
 
         .nav-links {
@@ -95,6 +95,10 @@
         gap: 1.5rem;
         }
 
+        .left p {
+        color: var(--subheadline);
+        }
+
         .right {
         flex: 1;
         position: relative;
@@ -118,8 +122,8 @@
         display: inline-flex;
         align-items: center;
         gap: 0.65rem;
-        background-color: black;
-        color: white;
+        background-color: var(--cta-bg);
+        color: black;
         font-size: 1rem;
         font-weight: 800;
         padding: 1rem 2.5rem;
@@ -131,10 +135,11 @@
 
         /* ── FOOTER STYLE ── */
         footer {
+        background-color: var(--bg-foot);
         padding: 5rem 5vw 2rem;
-        border-top: 1px solid rgb(200, 200, 200);
+        border-top: 1px solid var(--border-color);
         position: relative;
-        z-index: 5;
+        z-index: 4;
         }
 
         .footer-container {
@@ -155,6 +160,7 @@
         line-height: 1.6;
         font-size: 0.9rem;
         max-width: 320px;
+        color: var(--subheadline)
         }
 
         .footer-links-group {
@@ -277,7 +283,7 @@
 </head>
 <body>
     <nav>
-        <a class="nav-logo" href="#">Lapang<span>in</span></a>
+        <a class="logo" href="#">Lapang<span>in</span></a>
         <ul class="nav-links">
         <li><a href="#">Fasilitas</a></li>
         <li><a href="#">Jadwal</a></li>
@@ -289,7 +295,7 @@
     <section class="hero">
         <div class="split">
             <div class="left">
-                <h1>Arena Terbaik
+                <h1>Arena <span>Terbaik</span>
                 untuk Badminton
                 & Futsal-mu</h1>
                 <p>Reservasi lapangan premium dengan mudah dan cepat.
