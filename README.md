@@ -24,12 +24,12 @@ Klik tombol ikon ☀️/🌙 di navigasi kanan untuk mencoba fitur Dark Mode. Kl
 
 ## Screenshot Website
 1. **Light Mode:**
-![alt text](image.png)
-![alt text](image-1.png)
+![alt text](img/image.png)
+![alt text](img/image-1.png)
 
 2. **Dark Mode:**
-![alt text](image-2.png)
-![alt text](image-3.png)
+![alt text](img/image-2.png)
+![alt text](img/image-3.png)
 
 ---
 
@@ -37,8 +37,8 @@ Klik tombol ikon ☀️/🌙 di navigasi kanan untuk mencoba fitur Dark Mode. Kl
 ### Inisialisasi & Commit History
 1. **Membuat repositori baru di GitHub**\
 Pengaturan repositori dapat dilihat pada gambar di bawah ini.
-![alt text](image-4.png)
-![alt text](image-5.png)
+![alt text](img/image-4.png)
+![alt text](img/image-5.png)
 2. **Clone repositori**\
 Repositori yang dibuat di GitHub di-clone ke lokal, yaitu laptop pengguna. Untuk clone GitHub ke lokal, pengguna dapat menjalankan perintah ini di Terminal atau Git Bash.
 
@@ -52,10 +52,10 @@ Repositori yang dibuat di GitHub di-clone ke lokal, yaitu laptop pengguna. Untuk
     git clone https://github.com/farelldev/praktikum-git-556619.git
     ```
     Tampilan pengambilan tautan dapat dilihat pada gambar di bawah ini.
-    ![alt text](image-6.png)
+    ![alt text](img/image-6.png)
 
 3. **Melakukan commit**\
-   Commit-commit pertama dilakukan pada tahap ini. Pertama, file `index.html` dibuat sebagai file web dari proyek ini. Kemudian, pada file tersebut disusun layout web dengan konsep split screen: kiri merupakan headline dan subheadline, sementara kanan merupakan gambar. Setelah itu, perubahan di-stage, di-commit secara lokal dengan pesan, lalu dipush ke GitHub. Perintah dasar untuk melakukan commit adalah sebagai berikut:
+   Commit-commit pertama dilakukan pada tahap ini. Pertama, file `index.html` dibuat sebagai file web dari proyek ini. Kemudian, pada file tersebut disusun layout web dengan konsep split screen: sebelah kiri berisi headline dan subheadline, sementara kanan berisi gambar. Setelah itu, perubahan di-stage, di-commit secara lokal dengan pesan, lalu dipush ke GitHub. Perintah dasar untuk melakukan commit adalah sebagai berikut:
    ```bash
    git add .
    git commit -m "[pesan commit]"
@@ -69,7 +69,19 @@ Repositori yang dibuat di GitHub di-clone ke lokal, yaitu laptop pengguna. Untuk
 
    Terdapat total enam commit yang dilakukan dalam tahap ini, meliputi penyusunan layout, pemberian breakpoint, dan pembuatan tombol CTA. Seluruh commit dan pesannya dapat dilihat pada gambar di bawah.
 
-   ![alt text](image-7.png)
+   ![alt text](img/image-7.png)
 
 4. **Penyusunan .gitignore**\
-[File gitignore](.gitignore)
+   Sebelum melangkah lebih jauh dalam melakukan commit, penting untuk mendefinisikan file apa saja yang tidak perlu atau tidak boleh masuk ke dalam repositori GitHub. Di sini adalah letak pentingnya `.gitignore`
+
+   `.gitignore` adalah sebuah file teks khusus yang diberikan kepada Git supaya mengabaikan (tidak melacak) file atau direktori tertentu dalam sebuah proyek. File ini berfungsi menjaga kebersihan repositori, melindungi keamanan data, serta meningkatkan efisiensi kolaborasi apabila proyek dikerjakan dalam kelompok.
+
+   `.gitignore` dalam proyek ini dapat dilihat pada file [berikut](.gitignore). Setelah `.gitignore` diperbarui, perubahan di-commit dengan pesan `chore: add gitignore` dan di-push.
+
+5. **Melihat history commit**\
+Setelah melakukan berbagai perubahan dan menyimpan progres melalui commit, penting untuk meninjau kembali riwayat aktivitas yang telah dilakukan pada repositori. Proses ini membantu memastikan setiap perubahan telah tercatat dengan benar dan mengikuti urutan alur kerja yang direncanakan.
+   
+   Untuk melakukan peninjauan ini secara efisien, digunakan perintah `git log --oneline --graph`. Perintah ini mengombinasikan dua fungsi utama: `--oneline` yang meringkas setiap commit menjadi satu baris berisi kode hash pendek dan pesan commit, serta `--graph` yang menampilkan visualisasi percabangan (branching) dan penggabungan (merging) dalam bentuk diagram garis ASCII.
+
+   Hasil dari perintah tersebut dapat dilihat pada gambar di bawah ini:
+      ![alt text](img/image-8.png)
