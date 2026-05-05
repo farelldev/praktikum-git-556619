@@ -9,12 +9,6 @@ Proyek ini merupakan landing page dari **LapangIn**, adalah website modern untuk
 *   **Smooth Transitions:** Perpindahan tema yang halus di seluruh elemen halaman.
 *   **Modern Palette:** Pilihan warna hijau lime yang kontras dan estetik.
 
-### **Teknologi yang Digunakan:**
-*   **HTML5:** Untuk penataan struktur konten web yang semantik.
-*   **CSS3:** Digunakan untuk desain responsif dengan sistem *CSS Variables* untuk mendukung fitur tema.
-*   **JavaScript (ES6+):** Mengatur logika *toggle* tema dan manajemen *state* sederhana melalui *LocalStorage*.
-*   **Git & GitHub:** Sebagai pilar utama dalam manajemen versi, kolaborasi tim, dan dokumentasi teknis proyek.
-
 ---
 
 ## 🚀 Cara Menjalankan
