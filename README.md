@@ -15,6 +15,7 @@ Proyek ini merupakan landing page dari **LapangIn**, adalah website modern untuk
 1. **Clone Repository:**
    ```bash
    git clone https://github.com/farelldev/praktikum-git-556619.git
+   ```
 2. **Buka Proyek:**
 Buka file `index.html` menggunakan browser pilihanmu, atau gunakan ekstensi Live Server di VS Code.
 3. **Ganti Tema:**
@@ -150,3 +151,49 @@ Setelah melakukan berbagai perubahan dan menyimpan progres melalui commit, penti
    ![alt text](img/image-17.png)
    ![alt text](img/image-18.png)
    ![alt text](img/image-19.png)
+
+### Konflik & Rebase
+1. **Simulasi konflik**\
+   Pada tahap ini, akan dilakukan simulasi konflik menggunakan dua branch yang melakukan perubahan kode di baris yang sama. Branch yang dibuat adalah `experiment/color-A` dan `experiment/color-B`, masing-masing memberi warna yang berbeda pada beberapa elemen web. Branch `experiment/color-A` menggunakan warna aksen hijau lime, sementara branch `experiment/color-B` menggunakan warna aksen biru royal.
+
+   Perubahan dari kedua branch dipush ke branch GitHub masing-masing. Setelah itu, kedua branch melakukan pull request melalui GitHub. Visual web dari kedua branch dapat dilihat pada gambar di bawah ini.
+   ![alt text](img/image-20.png)
+   ![alt text](img/image-21.png)
+
+2. **Merge konflik**
+   Setelah kedua branch dipush, keduanya dimerge ke branch `main` untuk menyimulasikan konflik dalam merge. Merge branch dapat dilakukan langsung melalui terminal dengan perintah `merge`. Perintah lengkapnya adalah:
+   ```bash
+   git checkout main
+   git merge [nama-branch]
+   ```
+
+   Perintah pada baris pertama berfungsi melakukan perpindahan ke branch `main`. Hal ini berguna untuk memastikan bahwa proses merging dilakukan pada target branch yang tepat. Selanjutnya, baris kedua merupakan perintah untuk menggabungkan seluruh perubahan dari branch sumber ke dalam branch aktif saat ini.
+
+   Branch `experiment/color-A` dipush terlebih dahulu dan tidak terdapat konflik pada branch `main`, sehingga dapat langsung digabungkan. Sementara itu, terdapat konflik saat menggabungkan branch `experiment/color-B`. Hal ini disebabkan nilai warna pada beberapa baris ditulis berbeda sehingga perlu diperbaiki secara manual melalui VS Code.
+
+   Untuk menyelesaikan konflik, klik tombol "Resolve Merge Editor" pada VS Code. Setelah terbuka halaman merging, selesaikan konflik satu per satu dengan menentukan hasil akhir dari penggabungan. Palet warna yang digunakan berasal dari branch `experiment/color-A`, sehingga hasil akhir penggabungan adalah web dengan warna aksen hijau lime. Setelah itu, penggabungan dapat dilakukan.
+
+   Langkah-langkah penyelesaian konflik dapat dilihat pada gambar-gambar berikut
+   ![alt text](img/image-22.png)
+   ![alt text](img/image-23.png)
+   ![alt text](img/image-24.png)
+   ![alt text](img/image-25.png)
+
+3. **Interactive rebase**\
+   Selain simulasi konflik, fitur interactive rebase juga digunakan untuk mengoptimalkan struktur riwayat commit pada repositori. Interactive rebase adalah sebuah fitur dari Git yang memungkinkan pengembang untuk menulis ulang sejarah commit, seperti mengubah urutan, mengedit pesan, hingga menggabungkan beberapa commit menjadi satu.
+
+   Fitur tersebut digunakan untuk melakukan penggabungan (squashing) terhadap tiga commit pada branch `feature/dark-mode` yang membuat fitur mode gelap. Dalam pembuatan fitur, terdapat tiga commit kecil meliputi pembuatan mode gelap untuk navbar dan footer, pembuatan mode gelap untuk hero section, serta pembuatan tombol toogle pengganti mode. Ketiga commit tersebut digabungkan menjadi satu commit tunggal yang deskriptif sehingga riwayat proyek menjadi lebih mudah dibaca dan ditelusuri.
+
+   Langkah pertama dalam melakukan rebasing adalah menjalankan perintah `git rebase -i HEAD~3` yang berfungsi untuk membuka editor interaktif Git agar dapat meninjau tiga commit terakhir dari posisi HEAD saat ini. Perintah ini memungkinkan pengembang untuk memanipulasi riwayat commit sebelum digabungkan ke branch utama.
+
+   Di dalam editor interaktif, instruksi pada commit kedua dan ketiga diubah dari `pick` menjadi `squash` (atau cukup disingkat `s`). Hal ini bertujuan untuk menginstruksikan Git agar meleburkan kedua commit tersebut ke dalam commit pertama yang tetap menggunakan status `pick`.
+
+   Setelah instruksi disimpan, Git akan meminta pembaruan pesan commit gabungan. Pada tahap ini, pesan commit ditulis ulang menjadi satu pesan yang deskriptif untuk mencakup seluruh perubahan fitur secara atomik dan profesional.
+
+   Karena proses rebase menulis ulang sejarah riwayat commit yang sudah pernah dipush, maka diperlukan perintah `git push origin feature/dark-mode --force`. Penggunaan `flag --force` diperlukan agar repositori di GitHub mengikuti perubahan struktur riwayat yang baru saja dilakukan secara lokal.
+
+   Langkah-langkah rebasing dapat dilihat pada gambar-gambar berikut.
+   ![alt text](img/image-26.png)
+   ![alt text](img/image-27.png)
+   ![alt text](img/image-28.png)
+   ![alt text](img/image-29.png)
